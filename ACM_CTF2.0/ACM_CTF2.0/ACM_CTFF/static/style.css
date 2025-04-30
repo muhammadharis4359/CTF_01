@@ -1,0 +1,171 @@
+/* style.css */
+
+body {
+    font-family: 'Roboto', sans-serif; /* A modern, clean font */
+    margin: 0;
+    padding: 0;
+    background-color: #000; /* Fallback background color */
+    color: #fff;
+    overflow: auto; /* Prevent scrollbar issues with fixed background */
+    height: 100vh; /* Make sure it covers the whole viewport */
+    position: relative; /* Needed for the absolute positioning of ::before */
+}
+
+body::before {
+    content: "";
+    background: url('bg.jpg') no-repeat center center fixed; /* Your background image */
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3; /* Adjust this value (0.0 to 1.0) for desired transparency */
+    z-index: -1; /* Place the pseudo-element behind the body content */
+}
+
+.container {
+    width: 80%;
+    max-width: 960px; /* Limit the width on larger screens */
+    margin: 50px auto; /* Center vertically and horizontally */
+    background-color: rgba(0, 0, 0, 0.5); /* Slightly transparent black container */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    position: relative; /* Ensure container is above the pseudo-element */
+    z-index: 1;
+}
+
+/* ... rest of your CSS ... */
+
+h1 {
+    color: #ffc107; /* Gold color */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.balance {
+    margin: 20px auto; /* Center the table */
+    border-collapse: collapse;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1); /* Transparent white */
+    border-radius: 8px;
+    overflow: hidden; /* Hide any overflow from the rounded corners */
+}
+
+.balance th,
+.balance td {
+    border: none;
+    padding: 12px 15px;
+    text-align: left;
+    color: #eee;
+}
+
+.balance th {
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: bold;
+}
+
+.balance tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.transfer-form {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    text-align: left;
+}
+
+.transfer-form h3 {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.transfer-form div {
+    margin-bottom: 10px;
+}
+
+.transfer-form label {
+    display: block;
+    color: #eee;
+    margin-bottom: 5px;
+}
+
+.transfer-form select,
+.transfer-form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #eee;
+}
+
+.transfer-form button {
+    background-color: #007bff; /* Blue button */
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.transfer-form button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Admin Page Styling */
+.admin-container {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 600px;
+    margin: 90px auto;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.admin-container h1 {
+    color: #ff9800; /* Gold-orange */
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.flag {
+    font-size: 2.5em;
+    color: #00ff00;
+    margin-top: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    margin: 10px 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ddd;
+}
+
+.funkey-image {
+    margin-top: 20px;
+    max-width: 80%;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}

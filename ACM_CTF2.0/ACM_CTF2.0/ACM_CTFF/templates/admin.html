@@ -1,0 +1,53 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Secret</title>
+</head>
+<body>
+    <div class="container admin-container">
+    <h1>Welcome Admin Groot!</h1>
+    <img src="/static/funkey.jpg" alt="Groot" width="300">
+    <h2>flag{HTTP_Parameter_Pollution_Rocks}</h2>
+</div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Access Granted</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container admin-container">
+        <h1>Admin Access Granted!</h1>
+        <p class="flag">Here's the flag: {{ flag }}</p>
+                <!-- Play Button
+                <button id="playAudio" style="margin-top: 10px; padding: 10px 20px; font-size: 16px; cursor: pointer;">Copy The flag</button> -->
+
+                <div class="button-container">
+                    <button class="btn" id="playAudio">Copy the Flag!!!</button>
+                </div>
+        <img src="{{ url_for('static', filename='funkey.jpg') }}" alt="Funky Image" class="funkey-image">
+
+
+
+        <!-- Hidden Audio Element -->
+        <audio id="adminAudio" loop>
+            <source src="{{ url_for('static', filename='Audio.mp3') }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script>
+        const button = document.getElementById('playAudio');
+        const audio = document.getElementById('adminAudio');
+
+        button.addEventListener('click', () => {
+            audio.play();
+            button.style.display = 'none'; // Hide button after play
+        });
+    </script>
+</body>
+</html>
+

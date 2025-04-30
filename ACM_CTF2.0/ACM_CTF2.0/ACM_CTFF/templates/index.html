@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome Carloz</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <!-- Hidden audio
+  <audio id="introAudio" loop auto>
+    <source src="{{ url_for('static', filename='Audio.mp3') }}" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio> -->
+
+   <div class="container">
+    <h1>Welcome Carloz</h1>
+    <p>Your current balance is: {{ balances['Carloz'] }}</p>
+
+    <table class="balance">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for name, balance in balances.items() %}
+                <tr>
+                    <td>{{ name }}</td>
+                    <td>{{ balance }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="transfer-form">
+    <h3>Send Money</h3>
+    {% if message %}
+    <p style="color: red;"><b>{{ message }}</b></p>
+    {% endif %}
+
+    <form action="/" method="GET">
+        <div style="display: none;">
+            Sender:
+            <select name="sender">
+                <option value="">Select Sender</option>
+                {% for name in balances %}
+                <option value="{{ name }}" {% if name == request.args.get('sender') %}selected{% endif %}>{{ name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            Receiver:
+        <!-- <label for="receiver">Receiver:</label> -->
+        <select name="receiver" id="receiver">
+            <option value="">Select Receiver</option>
+            {% for name in balances.keys() %}
+                {% if name != "Carloz" %}
+                    <option value="{{ name }}">{{ name }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        </div>
+        <div>
+            Amount: <input type="number" name="amount" placeholder="Enter Amount">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        // Use DOMContentLoaded to ensure the DOM is fully parsed before running
+        document.addEventListener("DOMContentLoaded", function() {
+            alert("Please increase the volume to maximum");
+    
+            // Hide sender field safely after DOM is loaded
+            const senderField = document.getElementById('senderField');
+            if (senderField) {
+                senderField.style.display = 'none';
+            }
+        });
+      </script>
+
+        </div>
+    </div>
+</body>
+</html>
